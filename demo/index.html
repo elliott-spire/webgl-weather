@@ -9,8 +9,21 @@ body { margin: 0; padding: 0; }
 #coastline { background: black; }
 #canvas, #coastline { display: block; width: 100vw; height: 100vh; position: absolute; }
 .dg .function .property-name { width: 100%; }
+#spirelogo {
+	z-index: 99;
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	cursor: pointer;
+	background-image: url('spire_weather_logo_white.png');
+	background-repeat: no-repeat;
+	background-size: 150px 50px;
+	height: 50px;
+	width: 150px;
+}
 </style>
 <body>
+<a id="spirelogo" href="https://spire.com/weather/"></a>
 <canvas id="coastline"></canvas>
 <canvas id="canvas"></canvas>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.6.2/dat.gui.min.js"></script>

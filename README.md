@@ -1,5 +1,7 @@
 # Spire Ocean Currents Visualization
 
+Live demo here: https://elliott-spire.github.io/webgl-weather/demo/
+
 Adapted from WebGL Wind demo: https://github.com/mapbox/webgl-wind
 
 ### Running the demo locally

@@ -8,7 +8,7 @@ canvas.height = canvas.clientHeight;
 const gl = canvas.getContext('webgl', {antialiasing: false});
 
 const wind = window.wind = new WindGL(gl);
-wind.numParticles = 65536;
+wind.numParticles = 300300;
 
 function frame() {
     if (wind.windData) {
@@ -21,9 +21,10 @@ frame();
 const gui = new dat.GUI();
 gui.add(wind, 'numParticles', 1024, 589824);
 gui.add(wind, 'fadeOpacity', 0.96, 0.999).step(0.001).updateDisplay();
-gui.add(wind, 'speedFactor', 0.05, 1.0);
+gui.add(wind, 'speedFactor', 0.05, 10.0);
 gui.add(wind, 'dropRate', 0, 0.1);
 gui.add(wind, 'dropRateBump', 0, 0.2);
+gui.closed = true;
 
 const currentsFiles = {
     0: '2020040700',
@@ -44,11 +45,11 @@ const meta = {
         window.location = 'https://github.com/mapbox/webgl-wind';
     }
 };
-gui.add(meta, '2020-04-07+h', 0, 48, 6).onFinishChange(updateWind);
+// gui.add(meta, '2020-04-07+h', 0, 48, 6).onFinishChange(updateWind);
 if (pxRatio !== 1) {
     gui.add(meta, 'retina resolution').onFinishChange(updateRetina);
 }
-gui.add(meta, 'github.com/mapbox/webgl-wind');
+// gui.add(meta, 'github.com/mapbox/webgl-wind');
 updateWind(0);
 updateRetina();
 
