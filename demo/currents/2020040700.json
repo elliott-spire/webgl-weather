@@ -1,0 +1,10 @@
+{
+  "source": "https://spire.com/weather/",
+  "date": "2020-04-07T00:00Z",
+  "width": 2880,
+  "height": 1440,
+  "uMin": -1.67275,
+  "uMax": 1.67442,
+  "vMin": -1.8721,
+  "vMax": 1.50918
+}
