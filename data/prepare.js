@@ -20,13 +20,23 @@ for (let i = 0; i < uMess.length; i++) {
     v[vkey] = vval;
 }
 
-// console.log('u', u)
-// console.log('v', v)
+// console.log('u', u.values.length)
+// console.log('v', v.values.length)
 
 // Get the data width
-const width = u.Ni;
+let width = u.Ni;
+// width must be even number
+if (width % 2 != 0) {
+    width += 1;
+}
 // Get the data height
 const height = u.Nj - 1;
+// height must be even number
+if (height % 2 != 0) {
+    height += 1;
+}
+
+// console.log('wh',width, height)
 
 // Initialize new PNG
 const png = new PNG({
@@ -41,9 +51,14 @@ for (let y = 0; y < height; y++) {
     for (let x = 0; x < width; x++) {
         const i = (y * width + x) * 4;
         const k = y * width + (x + width / 2) % width;
+        // console.log('i', i)
+        // console.log('k', k)
         // red
         png.data[i + 0] = Math.floor(255 * (u.values[k] - u.minimum) / (u.maximum - u.minimum));
         // green
+        // console.log(u.values, v.values)
+        // console.log('red', Math.floor(255 * (u.values[k] - u.minimum) / (u.maximum - u.minimum)))
+        // console.log('green', Math.floor(255 * (v.values[k] - v.minimum) / (v.maximum - v.minimum)))
         png.data[i + 1] = Math.floor(255 * (v.values[k] - v.minimum) / (v.maximum - v.minimum));
         // blue
         png.data[i + 2] = 0;

@@ -27,7 +27,7 @@ gui.add(wind, 'dropRateBump', 0, 0.2);
 gui.closed = true;
 
 const currentsFiles = {
-    0: '2020040700',
+    0: '2021011600',
     // 6: '2016112006',
     // 12: '2016112012',
     // 18: '2016112018',
@@ -38,8 +38,10 @@ const currentsFiles = {
     // 48: '2016112200'
 };
 
+console.log('currentsFiles',currentsFiles)
+
 const meta = {
-    '2020-04-07+h': 0,
+    '2021-01-16+h': 0,
     'retina resolution': true,
     'github.com/mapbox/webgl-wind': function () {
         window.location = 'https://github.com/mapbox/webgl-wind';
@@ -60,7 +62,10 @@ function updateRetina() {
     wind.resize();
 }
 
-getJSON('https://d2ad6b4ur7yvpq.cloudfront.net/naturalearth-3.3.0/ne_110m_coastline.geojson', function (data) {
+// stored locally in `ne_110m_coastline.geojson` file
+// getJSON('https://d2ad6b4ur7yvpq.cloudfront.net/naturalearth-3.3.0/ne_110m_coastline.geojson', function (data) {
+getJSON('ne_110m_coastline.geojson', function (data) {
+// getJSON('hawaii-crop.geojson', function (data) {
     const canvas = document.getElementById('coastline');
     canvas.width = canvas.clientWidth * pxRatio;
     canvas.height = canvas.clientHeight * pxRatio;
